@@ -190,7 +190,7 @@ namespace Piccolo
         float horizontal_speed_ratio =
             m_jump_state == JumpState::idle ? m_move_speed_ratio : m_jump_horizontal_speed_ratio;
         m_desired_displacement =
-            m_desired_horizontal_move_direction * m_motor_res.m_move_speed * horizontal_speed_ratio * delta_time +
+            m_desired_horizontal_move_direction * m_motor_res.m_move_speed * (1.0 - m_motor_res.m_move_air_drag) * horizontal_speed_ratio * delta_time +
             Vector3::UNIT_Z * m_vertical_move_speed * delta_time;
     }
 
